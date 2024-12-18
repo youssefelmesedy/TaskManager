@@ -1,0 +1,56 @@
+﻿/* تنسيق الأزرار */
+
+.btn {
+    
+    margin : 10px;
+    margin-bottom : auto;
+    border-radius: 15px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    .btn:hover{
+        transform: scale(1.05);
+    }
+
+.btn-success {
+    font-size : medium;
+    background-color: #00ff21;
+    border: none;
+    color: #000000;
+}
+.button.btn-sm {
+    font-size: medium;
+    padding: 10px 10px;
+}
+{
+    font-size: medium;
+    background-color: #00ff21;
+    border: none;
+    color: #000000;
+}
+
+    .btn-primary{
+        background-color: #0056b3;
+    }
+
+.btn-secondary {
+    background-color: #6c757d;
+    font-size : medium;
+    border: 15px;
+    color: #ffffff;
+}
+
+    .btn-secondary {
+        background-color:#c82333;
+    }
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    color: #ffffff;
+}
+
+    .btn-danger{
+        background-color: #c82333;
+    }
