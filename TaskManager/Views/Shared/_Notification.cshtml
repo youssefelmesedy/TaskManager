@@ -1,0 +1,18 @@
+﻿<div class="notification-container">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="notification success">
+            <span class="message">@TempData["SuccessMessage"]</span>
+            <button class="close-btn" onclick="closeNotification(this)">×</button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="notification error">
+            <span class="message">@TempData["ErrorMessage"]</span>
+            <button class="close-btn" onclick="closeNotification(this)">×</button>
+        </div>
+    }
+</div>
+

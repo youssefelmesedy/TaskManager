@@ -1,0 +1,60 @@
+﻿@model List<ListTasksViewModel>
+@{
+    ViewData["Title"] = "قائمة المهام";
+}
+<h1>قائمة المهام</h1>
+
+<a href="@Url.Action("Create", "Tasks")" class="btn btn-primary mb-3">إضافة مهمة جديدة</a>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>لا توجد مهام حاليًا.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>العنوان</th>
+                <th>التصنيف</th>
+                <th> الوصف</th>
+                <th>تاريخ التسليم</th>
+                <th>وقت التسليم</th>
+                <th>عدد الايام المتبقية </th>
+                <th>الحالة</th>
+                <th>الإجراءات</th>
+            </tr>
+        </thead>
+        <tbody>
+            @await Html.PartialAsync("Modal")
+            @foreach (var task in Model)
+            {
+                <tr>
+                    <td>@task.Title</td>
+                    <td>@task.CategoryName</td>
+                    <td>@task.Description </td>
+                    <td>@task.DueDate.ToString("dd-MM-yyyy")</td> <!-- عرض التاريخ والوقت -->
+                    <td>@task.timeOnly </td>
+                    <td>@(task.RemainingDays > 0 ? task.RemainingDays + " يوم" : "منتهي")</td> <!-- عرض الأيام المتبقية -->
+                    <td>@(task.IsCompleted ? "مكتملة" : "غير مكتملة")</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Tasks", new { id = task.Id })" class="btn btn-warning btn-sm">تعديل</a>
+                        <form method="post" asp-action="Delete" asp-controller="Tasks" asp-route-id="@task.Id" class="d-inline">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                    onclick="setDeleteModalData(@task.Id, '@task.Title')">
+                                حذف
+                            </button>
+                        </form>
+                        <form method="post" asp-action="ToggleTaskStatus" asp-controller="Tasks" asp-route-id="@task.Id" asp-route-status="@(task.IsCompleted ? "false" : "true")" class="d-inline">
+                            <button type="submit" class="btn @(task.IsCompleted ? "btn-warning" : "btn-success") btn-sm">
+                                @(task.IsCompleted ? "إعادة إلى غير مكتملة" : "إكمال")
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<script src="~/js/delete.js"></script>
+

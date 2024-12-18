@@ -1,0 +1,43 @@
+﻿@model EditTaskFormViewModel
+@{
+    ViewData["Title"] = "تعديل المهمة";
+}
+<h1>تعديل المهمة</h1>
+
+<form method="post" asp-action="Edit" asp-controller="Tasks">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label for="Title">العنوان</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Description">الوصف</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="DueDate">تاريخ التسليم</label>
+        <input asp-for="DueDate" type="date" class="form-control" />
+        <span asp-validation-for="DueDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="timeOnly">وقت التسليم</label>
+        <input asp-for="timeOnly" type="timeOnly" class="form-control" />
+        <span asp-validation-for="timeOnly" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="CategoryId">التصنيف</label>
+        <select asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Id", "Name"))" class="form-control">
+            <option value="">اختر تصنيفًا</option>
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success">حفظ التعديلات</button>
+    <a href="@Url.Action("Index", "Tasks")" class="btn btn-secondary">إلغاء</a>
+</form>

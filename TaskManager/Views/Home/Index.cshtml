@@ -1,0 +1,43 @@
+﻿@model List<ListTasksViewModel>
+@{
+    ViewData["Title"] = "Tasks";
+}
+
+<h1>Tasks </h1>
+
+@if (Model.Count == 0)
+{
+    <p>No Tasks Now</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>العنوان</th>
+                <th>التصنيف</th>
+                <th> الوصف</th>
+                <th>تاريخ التسليم</th>
+                <th>وقت التسليم</th>
+                <th>عدد الايام المتبقيه </th>
+                <th>الحاله </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var task in Model)
+            {
+                <tr>
+                    <td>@task.Title</td>
+                    <td>@task.CategoryName</td>
+                    <td>@task.Description </td>
+                    <td>@task.DueDate.ToString("dd-MM-yyyy")</td> <!-- عرض التاريخ والوقت -->
+                    <td>@task.timeOnly </td>
+                    <td>@(task.RemainingDays > 0 ? task.RemainingDays + " يوم" : "منتهي")</td> <!-- عرض الأيام المتبقية -->
+                    <td>@(task.IsCompleted ? "مكتملة" : "غير مكتملة")</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

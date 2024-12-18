@@ -1,0 +1,276 @@
+* {
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+html {
+    font-size: 14px;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #17234c;
+}
+
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+    border-color: #17234c;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: #303850;
+    outline: none;
+    box-shadow: 0 0 5px #007bff;
+}
+
+/* تحسين مظهر شريط التنقل */
+.navbar {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* إضافة ظل */
+    border-bottom: 2px solid #7158fb; /* خط سفلي بلون مميز */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffc107 !important; /* لون مميز لاسم الموقع */
+    transition: color 0.3s ease-in-out;
+}
+
+    .navbar-brand:hover {
+        color: #ffffff !important; /* تغيير لون العلامة التجارية عند التمرير */
+    }
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    color: #ffffff !important; /* لون الروابط */
+    transition: color 0.3s ease-in-out;
+    padding: 0.7rem 1rem;
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #ffc107 !important; /* تأثير التمرير على الروابط */
+        background-color: rgba(255, 193, 7, 0.2); /* خلفية خفيفة عند التمرير */
+        border-radius: 5px;
+    }
+
+.navbar-toggler {
+    border: none;
+    background-color: #ffc107; /* لون زر القائمة في الشاشات الصغيرة */
+    border-radius: 5px;
+}
+
+    .navbar-toggler:focus {
+        box-shadow: 0px 0px 5px #ffc107; /* تأثير التركيز على الزر */
+        outline: auto;
+    }
+
+/* تحسين عرض القائمة المنسدلة */
+.dropdown-menu {
+    background-color: #48247e; /* لون خلفية القائمة المنسدلة */
+    border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+    color: #ffffff;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+    .dropdown-item:hover {
+        color: #ffc107;
+        background-color: rgba(255, 193, 7, 0.2);
+    }
+
+/* تحسين الفوتر */
+.footer {
+    font-size: 1.5rem; /* تقليل حجم الخط */
+    padding: 1px 0; /* تقليل المسافات حول النص */
+    text-align: center; /* محاذاة النص في منتصف الفوتر */
+    background-color: #0d6efd; /* خلفية داكنة */
+    color: #815f24; /* لون النص أبيض */
+}
+
+    .footer a {
+        color: #f34710; /* تغيير اللون للرابط */
+        text-decoration: blink; /* إزالة التسطير */
+    }
+
+        /* تأثير عند المرور على الرابط في الفوتر */
+        .footer a:hover {
+            text-decoration: blink; /* إضافة التسطير عند التمرير */
+        }
+
+/* تحسين الحاوية للمحتوى */
+.container {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+ /* تنسيق الأزرار */
+
+.btn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: #ffffff;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: #ffffff;
+}
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    color: #ffffff;
+}
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+/* تنسيق المكونات الإضافية */
+
+.select2-container .select2-selection--single {
+    height: 40px;
+    background-color: #333;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+.select2-container--default .select2-results__option--highlighted {
+    background-color: #9b73d3;
+}
+
+.select2-container--default .select2-results__option {
+    background-color: #333;
+    color: #ffffff;
+}
+/* دعم الشاشات المختلفة */
+
+@media (max-width: 1200px) {
+    .container-fluid {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container-fluid {
+        max-width: 750px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-fluid {
+        max-width: 500px;
+    }
+
+    .navbar-toggler-icon {
+        width: 20px;
+        height: 2px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+
+    .navbar-toggler {
+        padding: 3px 8px;
+    }
+
+    .game-card-link {
+        width: 100%;
+    }
+}
+.notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050; /* فوق كل العناصر */
+    width: 300px;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.8); /* لون أبيض شفاف */
+    color: #333;
+    border-radius: 8px;
+    border: 2px solid transparent; /* الحافة ستكون محددة لكل حالة */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+    .notification.success {
+        border-color: #28a745; /* الحافة الخضراء لحالة النجاح */
+    }
+
+    .notification.error {
+        border-color: #dc3545; /* الحافة الحمراء لحالة الخطأ */
+    }
+
+    .notification .message {
+        flex-grow: 1;
+        margin-right: 10px;
+        font-size: 14px;
+    }
+
+    .notification .close-btn {
+        background: none;
+        border: none;
+        color: #333; /* لون زر الإغلاق */
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .notification.hide {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+

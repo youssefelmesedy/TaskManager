@@ -1,0 +1,46 @@
+﻿@model List<ListCategoriesViewModel>
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h1>Categories</h1>
+
+<a asp-action="Create" asp-controller="Categories" class="btn btn-primary mb-3">Add New Category</a>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>لا توجد تصنيفات  حاليًا.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @await Html.PartialAsync("ModalDeleteCategorye")
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>@category.Id</td>
+                    <td>@category.Name</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Categories", new { id = category.Id })" class="btn btn-warning btn-sm">Edit</a>
+                        <form method="post" asp-action="Delete" asp-controller="Categories" asp-route-id="@category.Id" class="d-inline">
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                    onclick="setDeleteModalDataCategorey(@category.Id, '@category.Name')">
+                                حذف
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<script src="~/js/deletecategory.js"></script>
